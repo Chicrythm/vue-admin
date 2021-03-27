@@ -2,7 +2,7 @@
     <div id='login'>
         <div class='nav'>
             <ul class='nav-menu'>
-                <li class='current'>登录</li>
+                <li class='current' @click='toogleBar'>登录</li>
                 <li>注册</li>
             </ul>
         </div>
@@ -10,32 +10,40 @@
 </template>
 <script>
 // import {valideteAcc} from '@utils/validate.js';
+import {onMounted, Ref, reactive, isRef, toRefs, ref} from '@vue/composition-api';
 export default {
     name:'login',
-    components:{
+    setup(props, context){
 
-    },
-    data(){
+       
+
+        let model = ref('login')
+        let rea =  reactive([
+            {txt:'登录',current:true},
+            {txt:'注册',current:true},
+        ])
+
+        const toogleBar = ( ()=>{
+            console.log('点击登录')
+        })
+
+         const toogleName = (str =>{
+            console.log('起飞咯')
+        })
+
+        onMounted(() => {
+            
+        })
+
         return{
-
+            toogleName,
+            model,
+            rea,
+            toogleBar
         }
     },
-    methods:{
+}    
 
-    },
-    props:{
-
-    },
-    watch:{
-
-    },
-    created(){
-
-    },
-    mounted(){
-
-    }
-}
 </script>
 <style scoped lang='scss'>
 #login{
@@ -52,7 +60,6 @@ export default {
     height: 30px;
     width: 100px;
     border-radius: 2px;
-    line-height: 300px;
 }
 .current{
     background-color:aquamarine;
