@@ -5,6 +5,10 @@ import store from "./store";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import VueCompositionApi from '@vue/composition-api'
+// import Axios from 'axios'
+
+// Vue.prototype.$http = Axios
+
 Vue.use(VueCompositionApi);
 
 Vue.config.productionTip = false;

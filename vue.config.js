@@ -7,10 +7,10 @@ module.exports = {
     //例如 https://www.my-app.com/。如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 https://www.my-app.com/my-app/，则设置 baseUrl 为 /my-app/。
         //baseUrl 从 Vue CLI 3.3 起已弃用，请使用publicPath
       //baseUrl: process.env.NODE_ENV === "production" ? "./" : "/",
-      publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
+    publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
    
     // outputDir: 在npm run build 或 yarn build 时 ，生成文件的目录名称
-    outputDir: "mycli3",
+    outputDir: process.env.NODE_ENV === "production" ? "dist" : "devdist",
     //用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
     assetsDir: "assets",
     //指定生成的 index.html 的输出路径  (打包之后，改变系统默认的index.html的文件名)
@@ -57,24 +57,21 @@ module.exports = {
     // 它支持webPack-dev-server的所有选项
     devServer: {
       host: "localhost",
-      port: 1111, // 端口号
+      port: 8080, // 端口号
       https: false, // https:{type:Boolean}
       open: true, //配置自动启动浏览器
       // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
    
       // 配置多个代理
       proxy: {
-        "/api": {
-          target: "<url>",// 要访问的接口域名
-          ws: true,// 是否启用websockets
+        "/devApi": {
+          target: "https://www.web-jshtml.cn/productapi",// 要访问的接口域名
+          
           changeOrigin: true, //开启代理：在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
           pathRewrite: {
-              '^/api': '' //这里理解成用'/api'代替target里面的地址,比如我要调用'http://40.00.100.100:3002/user/add'，直接写'/api/user/add'即可
+              '^/devApi': '' //这里理解成用'/api'代替target里面的地址,比如我要调用'http://40.00.100.100:3002/user/add'，直接写'/api/user/add'即可
             }
-        },
-        "/foo": {
-          target: "<other_url>"
-        }
+          }
       }
     }
 }
