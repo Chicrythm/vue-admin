@@ -1,0 +1,23 @@
+.el-menu-vertical-demo .el-menu{
+    font-size: 14px !important;
+}
+
+.el-menu-item{
+    padding-left:49px !important;
+}
+
+.el-submenu {
+    &.is-active.is-opened{
+        .el-submenu__title{
+            background-color: #f56c6c !important;
+        }
+    }
+}
+
+.el-menu-item {
+    // color:cadetblue !important;
+    background-color: #344a5f !important;
+    &.is-active{
+        color: #409eff !important;
+    }
+}

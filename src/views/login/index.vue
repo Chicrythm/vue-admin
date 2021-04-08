@@ -15,6 +15,7 @@
 // 直接sha1() 函数加密需要加密的内容就可以使用
 import sha1 from 'js-sha1'
 import { GetSms } from "../../api/login";
+import {setToken, setUserName} from '../../utils/app'
 import {
   onMounted,
   Ref,
@@ -54,6 +55,8 @@ export default {
     };
 
     const tiaozhuan = ()=>{
+        setToken('123456')
+        setUserName('yeziqing')
         root.$router.push({
             name:'Console'
             // query:{
