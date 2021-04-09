@@ -6,6 +6,9 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import VueCompositionApi from "@vue/composition-api";
 import "./router/guard.js";
+
+// vue2.0 the global function() Vue.use to register
+// import global from './utils/global';
 // import Axios from 'axios'
 
 // Vue.prototype.$http = Axios
@@ -13,6 +16,8 @@ import "./router/guard.js";
 Vue.component('svg-icon',{
   template:`<div>asdfghjk</div>`
 })
+
+// Vue.use(global);
 
 Vue.use(VueCompositionApi);
 

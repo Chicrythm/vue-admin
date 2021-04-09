@@ -21,3 +21,22 @@
         color: #409eff !important;
     }
 }
+
+.cell{
+    .el-button--danger{
+        font-size: 12px;
+    }
+}
+
+.el-pagination{
+    position: fixed;
+    right: 49px;
+    width: auto;
+    display:inline-block !important;
+}
+
+.el-input{ 
+ &.el-input--suffix{
+    width: 150px;
+    }
+}
