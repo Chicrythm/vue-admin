@@ -1,5 +1,6 @@
 import router from "../router"
-import {getToken} from '../utils/app'
+import {clearLogoutInfo, getToken, getUserName} from '../utils/app'
+import store from "../store/app"
 
 const whiteRoute = ['/login','/'];
 
@@ -9,8 +10,14 @@ const whiteRoute = ['/login','/'];
 
 router.beforeEach((to, from, next) => {
     if(getToken()) {
-        next()
-        // console.log('exist')
+        if (to.path == '/login') {
+            clearLogoutInfo()
+            store.commit('app/SET_TOKEN','')
+            store.commit('app/SET_USERNAME', '')
+            next()
+        }else{
+            next()
+        }
     }else{
         // indexOf == -1 的时候代表不存在
         if (whiteRoute.indexOf(to.path) !== -1){

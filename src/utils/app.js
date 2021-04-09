@@ -5,6 +5,10 @@ import cookie from "cookie_js";
 const adminToken = 'admin_token'
 const userName = 'admin'
 
+/**
+ * the utils to get the cookies info and user info
+ * @returns 
+ */
 export function getToken() {
     return cookie.get(adminToken)
 }
@@ -19,4 +23,10 @@ export function getUserName() {
 
 export function setUserName(value) {
     cookie.set(userName,value)
+}
+
+// 把清理消息的全写到一个新的函数上
+export function clearLogoutInfo() {
+    cookie.remove(adminToken)
+    cookie.remove(userName)
 }

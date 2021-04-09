@@ -11,7 +11,9 @@
       <div>
         <img src="../../../imgs/2.jpeg" alt="grandpa mao" class='pull-left user-pic'>
         <div class='user-info pull-left'>{{userName}}</div>
-        <i class='el-icon-switch-button'></i>
+        <router-link to='login'>
+          <i class='el-icon-switch-button'></i>
+        </router-link>
       </div>
     </div>
   </div>
@@ -24,11 +26,15 @@ export default {
 
     const userName = root.$store.state.app.userName;
 
+    /**
+     * request store-state to control the status of nav-meun open 
+     */
     const open = () => {
       root.$store.commit("app/SET_COLLAPSE");
-
       // root.$store.dispatch('setMenuStatus',{"name":"aaaaaa"})
     };
+
+
     return { open, userName };
   },
 };

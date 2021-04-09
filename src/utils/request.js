@@ -6,6 +6,10 @@ import Axios from "axios";
 
 const BASEURL = process.env.NODE_ENV === "production" ? "" : "/devApi";
 
+
+/**
+ * create instance interceptors
+ */
 const instance = Axios.create({
   baseURL: "https://some-domain.com/api/",
   timeout: 15000,
@@ -14,7 +18,7 @@ const instance = Axios.create({
 // 添加请求拦截器
 instance.interceptors.request.use(
   function(config) {
-    // 在发送请求之前做些什么
+    // add header info before request
     console.log(config);
     config.headers["userId"] = "123456";
     config.headers["userName"] = "YEZIQING";
@@ -33,6 +37,7 @@ instance.interceptors.response.use(
 
     // 拦截器做第二次拦截
     let data = response.data;
+    // if the data is not wrong,return new promise
     if (data.resCode != 0) {
       return Promise.reject(data);
     } else {
