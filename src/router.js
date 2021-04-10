@@ -19,7 +19,7 @@ export default new Router({
       path: "/login",
       name: "Login",
       hidden: true,
-      component: () => import("./views/Login/index.vue"),
+      component: () => import("./views/login/index.vue"),
     },
 
     // 控制台
