@@ -61,6 +61,7 @@
           <template slot-scope="scope">
             <!-- through scope row id to get the id domain -->
             <el-button type="danger" @click='deleteItem(scope.row.id)'>删除</el-button>
+            <el-button type="danger" @click='deleteItem(scope.row.id)'>编辑</el-button>
           </template>
 
         </el-table-column>
