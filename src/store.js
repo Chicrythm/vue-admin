@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 import app from './store/app';
 import login from './store/login';
+import infoDetailed from './store/infoDetailed';
 
 
 /**
@@ -13,6 +14,7 @@ import login from './store/login';
 export default new Vuex.Store({
   modules:{
       app,
-      login
+      login,
+      infoDetailed
   }
 });

@@ -75,6 +75,15 @@ export default new Router({
           hidden: false,
           component: () => import("./views/Info/infoCata.vue"),
         },
+        {
+          path: "/infoDetailed",
+          name: "InfoDetailed",
+          meta: {
+            name: "信息分类",
+          },
+          hidden: false,
+          component: () => import("./views/Info/infoDetailed.vue"),
+        },
       ],
     },
 

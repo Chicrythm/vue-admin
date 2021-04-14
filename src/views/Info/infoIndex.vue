@@ -61,6 +61,13 @@
           <template slot-scope="scope">
             <!-- through scope row id to get the id domain -->
             <el-button type="danger" @click='deleteItem(scope.row.id)'>删除</el-button>
+            <!-- router-link 中把需要传的参数通过 query传输-->
+            <!-- <router-link :to="{name:'InfoDetailed',query:{id:scope.row.id}}">
+              <el-button type="success" >编辑</el-button>
+            </router-link> -->
+            <el-button type="success" @click='editInfo({id:scope.row.id, name: scope.row.name})'>编辑</el-button>
+            
+
           </template>
 
         </el-table-column>
@@ -233,6 +240,27 @@ export default {
       console.log(`当前页 ${val} `);
     }
 
+    /**
+     * edit the NewsInfo
+     */
+    const editInfo = (params)=>{
+      root.$router.push({
+        name:"InfoDetailed"
+      })
+      root.$store.commit('infoDetailed/SET_STATUE_VALUE',{
+        id:{
+          value:params['id'],
+          session:true,
+          sessionKey:"infoId"
+        },
+        name:{
+          value:params['name'],
+          session:true,
+          sessionKey:"infoTitle"
+        }
+      })
+    }
+
     return {
       formInline,
       date1,
@@ -250,7 +278,8 @@ export default {
       con,
       currentPage4,
       handleSizeChange,
-      handleCurrentChange
+      handleCurrentChange,
+      editInfo
     };
   },
 };
