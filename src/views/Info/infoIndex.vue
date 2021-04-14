@@ -65,7 +65,7 @@
             <!-- <router-link :to="{name:'InfoDetailed',query:{id:scope.row.id}}">
               <el-button type="success" >编辑</el-button>
             </router-link> -->
-            <el-button type="success" @click='editInfo({id:scope.row.id, name: scope.row.name})'>编辑</el-button>
+            <el-button type="success" @click='editInfo({id:scope.row.id, address: scope.row.address})'>编辑</el-button>
             
 
           </template>
@@ -253,10 +253,10 @@ export default {
           session:true,
           sessionKey:"infoId"
         },
-        name:{
-          value:params['name'],
+        address:{
+          value:params['address'],
           session:true,
-          sessionKey:"infoTitle"
+          sessionKey:"infoAddress"
         }
       })
     }
