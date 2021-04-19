@@ -93,7 +93,7 @@
 
     <!-- add Dialog -->
     <!-- if the flag is sync, we can save many way that we achieve to modify the father's component property -->
-    <DialogInfo :flag.sync="dialogFlag" @updateFlag='close' />
+    <DialogInfo :flag="dialogFlag" @updateFlag='close' />
 
   </div>
 </template>
